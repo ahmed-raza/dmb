@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * @file MapBox layer type definition for OpenLayers
