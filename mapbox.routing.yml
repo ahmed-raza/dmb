@@ -1,0 +1,9 @@
+mapbox.config_form:
+  path: '/admin/config/services/mapbox'
+  defaults:
+    _form: '\Drupal\mapbox\Form\ConfigForm'
+    _title: 'Mapbox'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
