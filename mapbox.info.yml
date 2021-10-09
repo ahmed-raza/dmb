@@ -2,3 +2,4 @@ name: 'Mapbox'
 type: module
 description: 'Mapbox base module.'
 core: 8.x
+configure: mapbox.config_form
