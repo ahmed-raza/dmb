@@ -1,0 +1,6 @@
+mapbox.config_form:
+  title: 'Mapbox'
+  route_name: mapbox.config_form
+  description: 'Mapbox configurations'
+  parent: system.admin_config_services
+  weight: 99
