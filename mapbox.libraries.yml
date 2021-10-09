@@ -1,0 +1,15 @@
+config:
+  css:
+    theme:
+      css/mapbox.config.css: {}
+  js:
+    js/common.js: {}
+    js/mapbox.preview.js: {}
+
+apis:
+  version: 2.5.0
+  js:
+    https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js: { type: external }
+  css:
+    theme:
+      https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css: { type: external }

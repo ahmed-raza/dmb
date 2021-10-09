@@ -1,0 +1,7 @@
+#edit-mapbox-settings .details-wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+#mapbox-preview {
+  height: 270px;
+}
