@@ -1,4 +1,4 @@
 services:
   mapbox:
     class: Drupal\mapbox\Mapbox
-    arguments: ['@config.factory']
+    arguments: ['@config.factory', '@string_translation']
