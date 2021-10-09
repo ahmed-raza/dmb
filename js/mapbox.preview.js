@@ -13,9 +13,6 @@
           keyboard: true
         });
         map.addControl(new mapboxgl.NavigationControl());
-        map.on('click', function(e){
-          console.log(e.lngLat);
-        })
         map.on('load', function(){
           $('input[name="style"]').change(function(){
             map.setStyle($(this).val());
