@@ -23,12 +23,19 @@ class Mapbox {
    */
   protected $stringTranslation;
 
+  protected $accessToken;
+
   /**
    * Constructs a new Mapbox object.
    */
   public function __construct(ConfigFactoryInterface $config_factory, TranslationManager $string_translation) {
     $this->configFactory      = $config_factory;
     $this->stringTranslation  = $string_translation;
+    $this->accessToken        = $this->configFactory->get('mapbox.config')->get('access_token');
+  }
+
+  public function accessToken() {
+    return $this->accessToken;
   }
 
   public function getStyle() {
