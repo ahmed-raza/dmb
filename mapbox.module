@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains login_otp.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function mapbox_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the mapbox module.
+    case 'help.page.mapbox':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Mapbox base module for Drupal >= 8.x submodules of Mapbox such as mapbox_field.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
