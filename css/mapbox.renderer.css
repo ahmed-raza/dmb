@@ -1,0 +1,13 @@
+.mapbox-map {
+  height: 370px;
+}
+.mapbox-marker {
+  background-image: url('../marker.png');
+  background-size: 50px;
+  width: 50px;
+  height: 95px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  z-index: 1;
+  display: none;
+}
