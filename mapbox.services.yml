@@ -1,0 +1,4 @@
+services:
+  mapbox:
+    class: Drupal\mapbox\Mapbox
+    arguments: ['@config.factory']
