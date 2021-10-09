@@ -57,6 +57,11 @@ class ConfigForm extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $config = $this->config('mapbox.config');
+
+    $noTokenMessage = '';
+    if (!$config->get('access_token'))
+      $noTokenMessage = $this->stringTranslation->translate('Missing Mapbox access token. Acquire an access token from <a href="https://www.mapbox.com" target="_blank">Mapbox</a>.');
+
     $form['access_token'] = [
       '#type' => 'textfield',
       '#title' => $this->stringTranslation->translate('Access Token'),
@@ -79,7 +84,7 @@ class ConfigForm extends ConfigFormBase {
     $form['mapbox_settings']['preview'] = [
       '#type' => 'item',
       '#title' => $this->stringTranslation->translate('Preview'),
-      '#markup' => "<div id='mapbox-preview'>". ($config->get('access_token') == null) ?? $this->stringTranslation->translate("Acquire an access token from Mapbox if you haven't already.") ."</div>"
+      '#markup' => "<div id='mapbox-preview'>$noTokenMessage</div>"
     ];
 
     $form['#attached']['library'][] = 'mapbox/config';
