@@ -18,7 +18,7 @@ function renderMap($, settings) {
     mapboxgl.accessToken = accessToken;
     var map = new mapboxgl.Map({
       container: container,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: settings.style,
       center: [lng, lat],
       zoom: zoom,
       maxZoom: maxZoom,

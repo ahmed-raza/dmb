@@ -1,0 +1,13 @@
+{
+    "name": "drupal/mapbox",
+    "type": "drupal-module",
+    "description": "Mapbox base module.",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/mapbox",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/mapbox"
+    }
+}

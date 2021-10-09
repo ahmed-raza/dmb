@@ -1,0 +1,21 @@
+.field--type-mapbox-field .inner-wrapper {
+  display: grid;
+  grid-template-columns: 90px 90px;
+}
+.field--type-mapbox-field fieldset > .fieldset-wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+.mapbox-map, #mapbox-map {
+  height: 350px;
+}
+.mapbox-marker {
+  background-image: url('../marker.png');
+  background-size: 50px;
+  width: 50px;
+  height: 95px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  z-index: 1;
+  display: none;
+}
