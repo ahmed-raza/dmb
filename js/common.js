@@ -39,7 +39,7 @@ function renderMap($, settings) {
       $('input[data-marked-delta="'+ instanceId +'"]').val('1');
       var el = document.getElementById(marker.instance_marker);
       el.style.display = 'inline-block';
-      new mapboxgl.Marker(el).setLngLat([position, e.lngLat.lat]).addTo(map);
+      new mapboxgl.Marker(el).setLngLat([lng, lat]).addTo(map);
     });
     map.on('load', function() {
       if (marked) {
