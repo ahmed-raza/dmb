@@ -8,11 +8,11 @@ function renderMap($, settings) {
   var maxZoom     = settings.options.maxZoom;
   var threeD      = settings.options.threeD;
   var marked      = settings.options.marked;
-  var marker      = settings.position.marker;
+  var marker      = settings.position;
   var pitch       = settings.options.pitch != 0 ? settings.options.pitch : 45;
   var zoom        = settings.options.zoom ? settings.options.zoom : 9;
-  var lat         = settings.options.lat ? settings.options.lat : 40.73119569710681;
-  var lng         = settings.options.lng ? settings.options.lng : -73.98930566093547;
+  var lat         = marker.lat ? marker.lat : 40.73119569710681;
+  var lng         = marker.lng ? marker.lng : -73.98930566093547;
   var instanceId  = 'mapbox-'+container.split('-')[1];
   if(accessToken != null) {
     mapboxgl.accessToken = accessToken;
@@ -37,16 +37,16 @@ function renderMap($, settings) {
       $('input[data-lat-delta="'+ instanceId +'"]').val(lat);
       $('input[data-lng-delta="'+ instanceId +'"]').val(lng);
       $('input[data-marked-delta="'+ instanceId +'"]').val('1');
-      var el = document.getElementById(settings.position.instance_marker);
+      var el = document.getElementById(marker.instance_marker);
       el.style.display = 'inline-block';
-      new mapboxgl.Marker(el).setLngLat([e.lngLat.lng, e.lngLat.lat]).addTo(map);
+      new mapboxgl.Marker(el).setLngLat([position, e.lngLat.lat]).addTo(map);
     });
     map.on('load', function() {
       if (marked) {
-        var el = document.getElementById(settings.position.instance_marker);
+        var el = document.getElementById(marker.instance_marker);
         el.style.display = 'inline-block';
-        el.style.backgroundImage = 'url("'+marker+'")';
-        new mapboxgl.Marker(el).setLngLat([map.getCenter().lng, map.getCenter().lat]).addTo(map);
+        el.style.backgroundImage = 'url("'+marker.marker+'")';
+        new mapboxgl.Marker(el).setLngLat([marker.lng, marker.lat]).addTo(map);
       }
       $('input[data-3d-delta="'+container+'"]').change(function(){
         if (this.checked) {

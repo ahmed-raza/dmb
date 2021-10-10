@@ -39,7 +39,7 @@ class Mapbox {
   }
 
   public function getStyle() {
-    return 'mapbox://styles/mapbox/streets-v11';
+    return $this->configFactory->get('mapbox.config')->get('style') ? $this->configFactory->get('mapbox.config')->get('style') : 'mapbox://styles/mapbox/streets-v11';
   }
 
   public function getStyles() {
