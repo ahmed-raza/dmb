@@ -2,7 +2,6 @@
   Drupal.behaviors.mapbox_views = {
     attach: function(context, settings) {
       var mapbox = drupalSettings.mapbox_views;
-      console.log(mapbox);
       if (mapbox.center != null && mapbox.positions != null) {
         mapboxgl.accessToken = mapbox.accessToken;
         var map = new mapboxgl.Map({
@@ -24,7 +23,7 @@
             var marker = document.getElementById('mapbox-marker-'+delta);
             marker.style.display = 'inline-block';
             if (position.markerText)
-              var popup = new mapboxgl.Popup({ offset: 25 }).setText();
+              var popup = new mapboxgl.Popup({ offset: 25 }).setText(position.markerText);
 
             new mapboxgl.Marker().setLngLat([position.lng, position.lat]).setPopup(popup).addTo(map);
           });
