@@ -1,5 +1,6 @@
 name: 'Mapbox'
 type: module
 description: 'Mapbox base module.'
+package: 'Mapbox'
 core_version_requirement: ^8 || ^9
 configure: mapbox.config_form
