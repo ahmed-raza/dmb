@@ -5,7 +5,7 @@
       if (mapbox.center != null && mapbox.positions != null) {
         mapboxgl.accessToken = mapbox.accessToken;
         var map = new mapboxgl.Map({
-          container: 'mapbox-views',
+          container: mapbox.mapboxInstance,
           style: mapbox.style,
           center: [mapbox.center.lng, mapbox.center.lat],
           zoom: mapbox.options.zoom,
@@ -20,12 +20,12 @@
 
         map.on('load', function() {
           $.each(mapbox.positions, function(delta, position){
-            var marker = document.getElementById('mapbox-marker-'+delta);
+            var marker = document.getElementById('mapbox-marker-'+position.markerInstance);
             marker.style.display = 'inline-block';
             if (position.markerText)
-              var popup = new mapboxgl.Popup({ offset: 25 }).setText(position.markerText);
+              var popup = new mapboxgl.Popup({ offset: 40 }).setText(position.markerText);
 
-            new mapboxgl.Marker().setLngLat([position.lng, position.lat]).setPopup(popup).addTo(map);
+            new mapboxgl.Marker(marker).setLngLat([position.lng, position.lat]).setPopup(popup).addTo(map);
           });
           if (mapbox.options.threeDBuildings)
             threeDLayer(map)
