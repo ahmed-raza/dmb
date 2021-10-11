@@ -22,13 +22,13 @@ renderer:
     js/common.js: {}
     js/mapbox.renderer.js: {}
 
-views:
+singlemap:
   css:
     theme:
       css/mapbox.renderer.css: {}
   js:
     js/common.js: {}
-    js/mapbox.views.js: {}
+    js/mapbox.singlemap.js: {}
 
 apis:
   version: 2.5.0
