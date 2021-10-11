@@ -30,24 +30,30 @@ function renderMap($, settings) {
     });
     if (finalRender == undefined) {
       map.addControl(new mapboxgl.NavigationControl());
-    }
-    map.on('click', function(e){
-      var lat = e.lngLat.lat;
-      var lng = e.lngLat.lng;
-      $('input[data-lat-delta="'+ instanceId +'"]').val(lat);
-      $('input[data-lng-delta="'+ instanceId +'"]').val(lng);
-      $('input[data-marked-delta="'+ instanceId +'"]').val('1');
-      var el = document.getElementById(marker.instance_marker);
-      el.style.display = 'inline-block';
-      new mapboxgl.Marker(el).setLngLat([lng, lat]).addTo(map);
-    });
-    map.on('load', function() {
-      if (marked) {
+      map.on('click', function(e){
+        var lat = e.lngLat.lat;
+        var lng = e.lngLat.lng;
+        $('input[data-lat-delta="'+ instanceId +'"]').val(lat);
+        $('input[data-lng-delta="'+ instanceId +'"]').val(lng);
+        $('input[data-marked-delta="'+ instanceId +'"]').val('1');
         var el = document.getElementById(marker.instance_marker);
         el.style.display = 'inline-block';
-        el.style.backgroundImage = 'url("'+marker.marker+'")';
-        new mapboxgl.Marker(el).setLngLat([marker.lng, marker.lat]).addTo(map);
-      }
+
+        new mapboxgl.Marker(el).setLngLat([lng, lat]).addTo(map);
+      });
+    }
+    map.on('load', function() {
+      var inputLng = $('input[data-lng-delta="'+container+'"]').val()
+      var inputLat = $('input[data-lat-delta="'+container+'"]').val()
+      var lng = marker.lng ? marker.lng : inputLng;
+      var lat = marker.lat ? marker.lat : inputLat;
+      var el = document.getElementById(marker.instance_marker);
+      el.style.display = 'inline-block';
+      if (marker.markerText)
+        var popup = new mapboxgl.Popup({ offset: 40 }).setText(marker.markerText);
+
+      el.style.backgroundImage = 'url("'+marker.marker+'")';
+      new mapboxgl.Marker(el).setLngLat([lng, lat]).setPopup(popup).addTo(map);
       $('input[data-3d-delta="'+container+'"]').change(function(){
         if (this.checked) {
           threeDLayer(map);

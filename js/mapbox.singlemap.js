@@ -1,7 +1,7 @@
 (function($, Drupal, drupalSettings){
-  Drupal.behaviors.mapbox_views = {
+  Drupal.behaviors.mapbox_singlemap = {
     attach: function(context, settings) {
-      var mapbox = drupalSettings.mapbox_views;
+      var mapbox = drupalSettings.mapbox_singlemap;
       if (mapbox.center != null && mapbox.positions != null) {
         mapboxgl.accessToken = mapbox.accessToken;
         var map = new mapboxgl.Map({
